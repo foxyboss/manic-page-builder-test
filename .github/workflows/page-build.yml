@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
+      - name: Clone manicjs/manic repository
+        uses: actions/checkout@v2
         with:
-          owner: 'GuillaumeFalourd'
-          repository: 'poc-github-actions'
+          owner: 'manicjs'
+          repository: 'manic'
       
       - name: Access cloned repository content
         run: |
           echo "ROOT"
           ls -la
           echo "CLONED REPO"
-          cd poc-github-actions
+          cd manic
           ls -la
