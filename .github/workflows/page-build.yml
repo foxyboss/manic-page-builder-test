@@ -34,7 +34,9 @@ jobs:
           mv -v manic/* .
 
       - name: Install Manic's dependencies
-        run: npm install
+        run: |
+          npm install
+          npm update
       
       - name: Generate personal full static site with Manic
         run: npm run generate
