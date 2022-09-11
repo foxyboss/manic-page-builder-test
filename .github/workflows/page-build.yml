@@ -5,19 +5,35 @@ on: [push]
 
 jobs:
   page_build:
-    runs-on: ubuntu-latest
-    
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [18]
+
     steps:
-      - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
+      - name: Checkout current repository
+        uses: actions/checkout@master
+
+      - name: Setup node env
+        uses: actions/setup-node@v2.1.2
         with:
-          owner: 'manicjs'
-          repository: 'manic'
-      
-      - name: Access cloned repository content
+          node-version: ${{ matrix.node }}
+
+      - name: Show node setup
         run: |
           ls -la
-          cd manic
-          ls -la
-          rm data/*
-          
+
+      # - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
+      #   uses: GuillaumeFalourd/clone-github-repo-action@v2
+      #   with:
+      #     owner: 'manicjs'
+      #     repository: 'manic'
+
+      # - name: Access cloned repository content
+      #   run: |
+      #     ls -la
+      #     cd manic
+      #     ls -la
+      #     rm data/*
