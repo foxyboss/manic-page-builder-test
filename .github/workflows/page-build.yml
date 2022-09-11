@@ -21,19 +21,13 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Show node setup
+      - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
+        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        with:
+          owner: 'manicjs'
+          repository: 'manic'
+
+      - name: Access cloned repository content
         run: |
+          rm manic/data/*
           ls -la
-
-      # - name: Clone GuillaumeFalourd/poc-github-actions PUBLIC repository
-      #   uses: GuillaumeFalourd/clone-github-repo-action@v2
-      #   with:
-      #     owner: 'manicjs'
-      #     repository: 'manic'
-
-      # - name: Access cloned repository content
-      #   run: |
-      #     ls -la
-      #     cd manic
-      #     ls -la
-      #     rm data/*
