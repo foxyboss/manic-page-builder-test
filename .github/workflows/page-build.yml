@@ -11,7 +11,7 @@ jobs:
       - name: Clone manicjs/manic repository
         uses: actions/checkout@v2
         with:
-          owner: 'manicjs'
+          owner: 'MrIsaacs'
           repository: 'manic'
       
       - name: Access cloned repository content
