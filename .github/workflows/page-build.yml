@@ -29,14 +29,9 @@ jobs:
 
       - name: Access cloned repository content
         run: |
-          echo "MANIC FOLDER"
-          ls -la manic
-          echo "ROOT FOLDER"
-          ls -la 
           rm -R manic/data
           rm -R manic/config
           mv -v manic/* .
-          echo "MANIC FOLDER"
-          ls -la manic
           echo "ROOT FOLDER"
           ls -la
+          cat config/site-head.js
