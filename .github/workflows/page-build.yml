@@ -29,5 +29,6 @@ jobs:
 
       - name: Access cloned repository content
         run: |
-          rm manic/data/*
+          rm -R manic/data
           ls -la
+          ls -la manic
